@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO list Rest Api Demo</title>
+    <meta name="author" content="Stefan Korecko">
+
+</head>
+
+<body>
+
+<main>
+    <form>
+        <label>New task:
+            <input type="text" id="inNewTask" placeholder="Do something"/>
+        </label>
+        <button type="button" id="btAddTask" onclick="addTask()">Add task</button>
+
+        <br /> <br />
+
+        <label>task id:
+            <input type="text" id="inTaskIdEdt"  placeholder="id of the task to edit"/>
+        </label>
+        <label>New task description:
+                <input type="text" id="inNewTaskName"  placeholder="Do something"/>
+        </label>
+        <button type="button"  id="btEdtTask" onclick="editTask()">Edit  task (rewrite description and set isDOne to false)</button>
+
+        <br /> <br />
+
+
+        <label>task id:
+                <input type="text" id="inTaskIdRem"  placeholder="id of the task to remove"/>
+        </label>
+        <button type="button"  id="btRemTask" onclick="deleteTask()">Delete  task</button>
+
+        <br /> <br />
+
+
+        <button type="button"  id="btGetAllTasks" onclick="getTasks()">Get all  tasks</button>
+
+        <br /> <br />
+
+
+        <textarea id="tareaResponse" cols="200" rows="30"></textarea>
+    </form>
+
+</main>
+
+<!-- Vlozenie skriptu pre tuto stranku  -->
+<script src="js/ToDoListRestApiAsync.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Kanban</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/simpleKanban.css" />
+</head>
+
+<body>
+
+<main>
+    <form id="frmAddRemTask">
+        <label>New task:
+            <input type="text" id="inNewTask" maxlength="100" placeholder="Do something"/>
+        </label>
+        <button type="button" id="btAddTask">Add task</button>
+        <button type="button"  id="btRemCmpl">Remove completed tasks</button>
+    </form>
+
+
+    <section class="tasksContainer">
+        <div id="taskline1container">
+            <h2>New </h2>
+            <form id="taskline1" data-id="1">
+            </form>    
+        </div>
+
+        <div id="taskline2container">
+            <h2>In progress</h2>
+            <form id="taskline2" data-id="2">
+            </form>            
+        </div>
+    
+        <div id="taskline3container">
+            <h2>Completed</h2>
+            <form id="taskline3" data-id="3">
+            </form>            
+        </div>
+
+    </section>
+    
+ 
+
+</main>
+
+
+
+<!-- Vlozenie skriptu pre tuto stranku  -->
+<script src="js/simpleKanban.js"></script>
+
+
+</body>
+</html>
