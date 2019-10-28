@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Kanban</title>
+        <link rel="stylesheet" href="css/kanban.css" />
+
+        <script src="js/connector.js"></script>
+        <script src="js/kanban.js"></script>
+    </head>
+
+    <body>
+        <main>
+            <form id="frmAddRemTask">
+                <label>New task:
+                    <input type="text" id="inNewTask" maxlength="100" placeholder="Do something"/>
+                </label>
+                <button type="button" id="btAddTask">Add task</button>
+                <button type="button"  id="btRemCmpl">Remove completed tasks</button>
+            </form>
+            <section class="tasksContainer" id = "tasksContainer">
+            </section>
+        </main>
+    </body>
+</html>
