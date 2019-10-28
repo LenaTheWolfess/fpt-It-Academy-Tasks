@@ -74,12 +74,14 @@ class Board {
     this.size = {x: sizeX, y: sizeY};
     this.mineCount = mineCount;
     this.data = new Array(sizeX);
-    for (let x = 0; x < sizeX; ++x) {
+    const xArr = new Array(sizeX).fill(0).map((val, ind) => ind);
+    const yArr = new Array(sizeY).fill(0).map((val, ind) => ind);
+    xArr.forEach((x) => {
       this.data[x] = new Array(sizeY);
-      for (let y = 0; y < sizeY; ++y) {
+      yArr.forEach((y) => {
         this.data[x][y] = new Tile({x: x, y: y, board: this});
-      }
-    }
+      });
+    });
   }
   getData() {
     return this.data;
@@ -282,8 +284,10 @@ function initHtml() {
   const board = game.getBoard();
   const size = board.getSize();
   parent.innerHTML = '';
-  for (let x = 0; x < size.x; ++x) {
-    for (let y = 0; y < size.y; ++y) {
+  const xArr = new Array(size.x).fill(0).map((val, ind) => ind);
+  const yArr = new Array(size.y).fill(0).map((val, ind) => ind);
+  xArr.forEach((x) => {
+    yArr.forEach((y) => {
       const button = document.createElement('button');
       button.innerHTML = board.getTile(x, y).toString();
       button.addEventListener('contextmenu', (ev)=> {
@@ -305,9 +309,9 @@ function initHtml() {
       const tile = board.getTile(x, y);
       board.setTile(x, y, tile.setField(button));
       parent.appendChild(button);
-    }
+    });
     parent.appendChild(document.createElement('br'));
-  }
+  });
 
   updateRemaingMines();
 }
@@ -426,11 +430,6 @@ window.onload = () => {
   });
 };
 
-function getCoordinates(str) {
-  const str2 = str.trim();
-  return [str2.charCodeAt(0)-65, +str2.slice(1).trim()-1];
-}
-
 function recursiveOpen(x, y) {
   const board = game.getBoard();
   const size = board.getSize();
@@ -538,18 +537,4 @@ function markE(x, y) {
   else
     game.setMarkedMines(markedMines + 1);
   updateRemaingMines();
-}
-
-function open(str) { // eslint-disable-line no-unused-vars
-  if (game.getStatus() != G_IN_PROGRESS)
-    return;
-  const c = getCoordinates(str);
-  if (openE(c[0], c[1]))
-    checkWinLos(c[0], c[1]);
-}
-function mark(str) { // eslint-disable-line no-unused-vars
-  if (game.getStatus() != G_IN_PROGRESS)
-    return;
-  const c = getCoordinates(str);
-  markE(c[0], c[1]);
 }
