@@ -57,7 +57,7 @@ class Tile {
 class Mine extends Tile {
   toString() {
     if (this.state == ST_OPEN || gameStatus != G_IN_PROGRESS)
-      return 'X';
+      return 'x';
     return super.toString();
   };
   isMine() {
@@ -224,11 +224,6 @@ window.onload = () => {
   });
 };
 
-function getCoordinates(str) {
-  str = str.trim();
-  return [str.charCodeAt(0)-65, +str.slice(1).trim()-1];
-}
-
 function recursiveOpen(x, y) {
   if (
     x < 0 || x > boardSizeX - 1 ||
@@ -300,18 +295,4 @@ function markE(x, y) {
       markedMines++;
     updateRemaingMines();
   }
-}
-
-function open(str) { // eslint-disable-line no-unused-vars
-  if (gameStatus != G_IN_PROGRESS)
-    return;
-  const c = getCoordinates(str);
-  if (openE(c[0], c[1]))
-    checkWinLos(c[0], c[1]);
-}
-function mark(str) { // eslint-disable-line no-unused-vars
-  if (gameStatus != G_IN_PROGRESS)
-    return;
-  const c = getCoordinates(str);
-  markE(c[0], c[1]);
 }

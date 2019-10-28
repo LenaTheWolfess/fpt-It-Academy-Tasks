@@ -157,7 +157,7 @@ class Tile {
 class Mine extends Tile {
   toString() {
     if (this.state == ST_OPEN || this.state == ST_REVEALED)
-      return 'X';
+      return 'x';
     return super.toString();
   };
   isMine() {
