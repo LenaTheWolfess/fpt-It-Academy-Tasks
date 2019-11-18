@@ -1,0 +1,121 @@
+
+body {
+    background-color: gray;
+}
+.paper {
+    background-color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 5%;
+    top: 0;
+}
+.name {
+    font-size: x-large;
+}
+.header {
+    font-size: x-large;
+    color: lightskyblue;
+}
+.left {
+    position: inherit;
+    color: blue;
+    width: 30%;
+    left: 10%;
+    overflow-wrap: break-word;
+    top: 0;
+    text-align: right;
+    padding-right: 2em;
+}
+.bLine {
+    margin-bottom: 1em;
+}
+.right {
+    position: inherit;
+    left: 30%;
+    text-overflow: clip;
+    max-width: 50%;
+    top: 0;
+    text-align: justify;
+}
+.ttl {
+    color: blue;
+    font-size: x-large;
+    text-align: left;
+    position: inherit;
+}
+.block {
+    position: inherit;
+    text-align: left;
+    width: 100%;
+}
+.Line {
+  display: block;
+  position: inherit;
+}
+.mLine {
+    height: 100%;
+    width: 80%;
+    left: 0;
+    display: inline-flex;
+    margin-left: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 0.1em;
+}
+.blue {
+    color: blue;
+    display: inline-block;
+}
+.db {
+    color: blue;
+    display: inline-block;
+}
+td {
+    text-align: center;
+    border-style: solid;
+    height: 1.2rem !important;
+    border-width: 0.1rem;
+}
+.noLeft {
+    border-left-style: none;
+}
+.noRight {
+    border-right-style: none;
+}
+th {
+    text-align: center;
+    border-style: solid;
+    color: blue;
+    border-color: black;
+    font-weight: normal;
+    border-width: 0.1rem;
+}
+.grayb {
+    background-color: lightgrey;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+hr {
+    left: 0;
+    color: blue;
+    height: 0.2rem;
+    background-color: blue;
+    width: 75%;
+}
+.img {
+    max-width: 70%;
+    max-height: 70%;
+}
+.noBorder {
+    border: none;
+    height: 1.4rem !important;
+    text-align: right;
+}
+.black {
+    color: black;
+}
+.fright {
+    display: contents;
+}

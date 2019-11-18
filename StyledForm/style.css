@@ -1,0 +1,37 @@
+body {
+    display: block;
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+}
+input{
+    display: block;
+    justify-self: center;
+}
+input.form {
+    left: 30%;
+    position: relative;
+    width: 40%;
+}
+input.radio {
+    position: inherit;
+    display: inline;
+}
+input:required {
+    background-color: lightpink;
+}
+input:required:valid {
+    background-color: lightgreen;
+}
+select {
+    display: inline-block;
+}
+textarea {
+    display: block;
+    width: 500px;
+    height: 250px;
+    resize: none;
+    overflow: scroll;
+}

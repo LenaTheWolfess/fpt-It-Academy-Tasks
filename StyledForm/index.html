@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <form>
+            <!--5x input {text, email, number, ...}-->
+            <!--textarea, select, datalist-->
+            <!--1 group of radio-->
+            <!--submit, reset-->
+            <fieldset>
+                <legend>Personal data</legend>
+                <input class="form" type="text" name="txtFirstName" placeholder="first name" required>
+                <input class="form" type="email" name="emEmail" placeholder="email" required>
+                <input class="form" type="number" name="numAge" placeholder="age">
+                <label for="idFavCol">Favourite colour</label>
+                <input class="form" type="color" id="idFavCol" name="colFavCol">
+                <input class="form" type="date" name="datBirthDay" title="date of birth" required>
+                <input class="form" type="text" placeholder="country" list="countryList"/>
+                <datalist id="countryList">
+                    <option>Slovakia</option>
+                    <option>Czech Republic</option>
+                    <option>France</option>
+                    <option>Germany</option>
+                    <option>GB</option>
+                    <option>USA</option>
+                    <option>Poland</option>
+                </datalist>
+            </fieldset>
+            <fieldset>
+                <legend>Position</legend>
+                <label for="idPos">Working area</label>
+                <select class="required" id="idPos" name="selPosition" required>
+                    <option value="1">Js Programmer</option>
+                    <option value="2">C++ Programmer</option>
+                    <option value="3">Tester</option>
+                    <option value="4">2d artist</option>
+                    <option value="5">3d artist</option>
+                    <option value="6">Sound creator</option>
+                    <option value="7">Web developer</option>
+                </select>
+                <textarea name="txaMotiv" required>Write your motivation here</textarea>
+                <label>Availability</label>
+                <div class="radioGr">
+                    <input class="radio" id="r12" type="radio" name="radAvailability" value="1-2" checked>
+                    <label for="r12">1 - 2 hours</label>
+                </div>
+                <div class="radioGr">
+                    <input class="radio" id="23" type="radio" name="radAvailability" value="2-3">
+                    <label for="23">2 - 3 hours</label>
+                </div>
+                <div class="radioGr">
+                    <input class="radio" id="34" type="radio" name="radAvailability" value="3-4">
+                    <label for="34">3 - 4 hours</label>
+                </div>
+                <div class="radioGr">
+                    <input class="radio" id="5" type="radio" name="radAvailability" value="5+">
+                    <label for="5">5 and more hours</label>
+                </div>
+            </fieldset>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+    </body>
+</html>

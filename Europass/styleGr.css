@@ -1,0 +1,93 @@
+body {
+    background-color: lightgray;
+}
+.paper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    margin-right: 25%;
+    margin-left: 25%;
+    background-color: white;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    padding-right: 5rem;
+    padding-left: 5rem;
+}
+.left {
+    color: blue;
+    text-align: right;
+    padding-right: 2rem;
+}
+.right {
+    text-align: left;
+    width: 100%;
+}
+.name {
+    font-size: x-large;
+}
+.header {
+    font-size: x-large;
+    color: lightskyblue;
+}
+.ttl {
+    color: blue;
+    font-size: x-large;
+    text-align: left;
+    position: inherit;
+}
+.blue {
+    color: blue;
+    display: inline-block;
+}
+.db {
+    color: blue;
+    display: inline-block;
+}
+td {
+    text-align: center;
+    border-style: solid;
+    height: 1.2rem !important;
+    border-width: 0.1rem;
+}
+.noLeft {
+    border-left-style: none;
+}
+.noRight {
+    border-right-style: none;
+}
+th {
+    text-align: center;
+    border-style: solid;
+    color: blue;
+    border-color: black;
+    font-weight: normal;
+    border-width: 0.1rem;
+}
+.grayb {
+    background-color: lightgrey;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+hr {
+    left: 0;
+    color: blue;
+    height: 0.2rem;
+    background-color: blue;
+    width: 100%;
+}
+.img {
+    max-width: 40%;
+}
+.noBorder {
+    border: none;
+    height: 1.4rem !important;
+    text-align: right;
+}
+.black {
+    color: black;
+}
+.fright {
+    display: contents;
+}
