@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Kanban</title>
+        <link rel="stylesheet" href="css/kanban.css" />
+
+        <script src="js/connector.js"></script>
+        <script src="js/kanban.js"></script>
+
+        <link rel="icon" href="img/luna.png">
+    </head>
+
+    <body>
+        <main>
+            <div id="regg">
+                <input type="text" id="reggName" placeholder="user name">
+                <input type="text" id="reggPass" placeholder="new password">
+                <button type="button" id="btnRegg">Register</button>
+            </div>
+            <div id='logg'>
+                <input type="text" id="loggName" placeholder="loggin name">
+                <input type="text" id="loggPass" placeholder="password">
+                <button type="button" class="anim" id="btnLogg">Logg</button>
+            </div>
+            <div id="taskMan">
+                <form id="frmAddRemTask">
+                    <label>New task:
+                        <input type="text" id="inNewTask" maxlength="100" placeholder="Do something"/>
+                        <input type="text" id="inTags" placeholder="tags"/>
+                    </label>
+                    <button type="button" id="btAddTask">Add task</button>
+                    <button type="button"  id="btRemCmpl">Remove completed tasks</button>
+                </form>
+                <div id="frmTags">
+                    <label>Show with tags:
+                        <div id="listTags" class='tlist'><div contenteditable="true" id="nlistTags" class="nTag"> </div></div>
+                        <div id="flistTags">+</div>
+                    </label>
+                    <button type="button" id="btSetTags">Set tags</button>
+                </div>
+            </div>
+            <section class="tasksContainer" id = "tasksContainer">
+                You are not logged
+            </section>
+        </main>
+    </body>
+</html>

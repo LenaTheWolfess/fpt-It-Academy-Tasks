@@ -1,0 +1,119 @@
+html {
+    font-size: 100%;
+    font-family: "Tw Cen MT", Arial, Helvetica, sans-serif;
+    font-style: normal; /*normal, italic, oblique (obl.-similar to italic*/
+    font-weight: normal; /*normal, bold*/
+    text-align: justify; /*justify, left, right, center*/
+    color: black;
+}
+
+li {
+    display: inline-block;
+    background-color: blue;
+    color: cornsilk;
+    border-style: ridge;
+    margin-right: 2px;
+}
+
+h1, h2{
+    border-radius: 1rem;
+    padding:0.5em;
+    text-align:center;
+    background-color: lightgrey;
+}
+
+.tasksContainer > div{
+    width:30em;
+    padding: 1em;
+}
+.tremove {
+    display: inline;
+    margin-left: 1px;
+    background-color: cyan;
+}
+.tremove:hover {
+    background-color: darkblue;
+    color: darkcyan;
+}
+.nTag {
+    display: inline-block;
+    max-height: 20px;
+    min-width: 100px;
+    min-height: 20px;
+    border: seagreen;
+    border-style: groove;
+}
+.tlist {
+    width: 100%;
+}
+@media only screen and (min-width: 800px){
+ .tasksContainer{
+    display: flex;
+    flex-direction: row;
+ }
+}
+@media only screen and (max-width: 799px){
+    .tasksContainer{
+        display: flex;
+        flex-direction: column;
+     }
+}
+
+main{margin-top: 1rem;}
+
+button{
+    background-color: rgb(255, 228, 113);
+    border-radius: 0.2em;
+    border-width: 0.1em;
+    border-color: rgb(204,153,0);
+    padding: 0.3em;
+    margin-bottom: 1em;
+}
+/*
+button:hover{
+    background-color: rgb(255, 148, 71);
+}
+*/
+div.task{
+    border:none;
+    border-radius: 1em;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    margin-top: 1rem;
+    text-align: left;
+    background-color: tan;
+}
+
+.new > .task{
+    background-color: rgb(242, 248, 152);
+}
+
+.active > .task{
+    background-color: rgb(175, 255, 80);
+}
+
+.completed > .task{
+    background-color: rgb(200, 200, 200);
+    text-decoration: line-through;
+}
+
+.task h2 {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    background-color: lightskyblue;
+}
+
+.task:hover {
+   background-color: lightskyblue;
+}
+
+@keyframes colors {
+   to {
+        background-color: rgb(255, 148, 71);
+    }
+}
+
+button:hover {
+   animation-name: colors;
+   animation-duration: 5s;
+}
