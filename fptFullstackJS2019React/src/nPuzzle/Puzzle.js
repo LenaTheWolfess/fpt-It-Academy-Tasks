@@ -3,12 +3,17 @@ import {Field, GameStateEnum} from './Core';
 import FieldRenderer from './FieldRenderer';
 import Rating from './Rating'
 import RatingForm from './RatingForm'
+import SetupRenderer from './SetupRenderer'
 import {withRouter, Switch, Route} from 'react-router-dom'
 
 class Puzzle extends Component {
     constructor(props) {
         super(props);
-        this.state = {field: new Field(4, 4), ratingEnabled: false};
+        this.state = {
+            field: new Field(4, 4),
+            ratingEnabled: false,
+            setup: {x: 4, y: 4}
+        };
     }
     render() {
         return (
@@ -18,7 +23,8 @@ class Puzzle extends Component {
                         <RatingForm/>
                     </Route>
                     <Route path="/">
-                        <FieldRenderer field = {this.state.field} handleMoveStone = {this.handleMoveStone}/>
+                        <SetupRenderer setup = {this.state.setup} handleChangeSetup = {this.handleChangeSetup}/>
+                        <FieldRenderer state = {this.state.field.gameState} stones = {this.state.field.stones} handleMoveStone = {this.handleMoveStone}/>
                         <Rating ratingEnabled = {this.state.ratingEnabled}/>
                     </Route>
                 </Switch>
@@ -34,7 +40,16 @@ class Puzzle extends Component {
         if (field.gameState === GameStateEnum.WON)
             this.setState({ratingEnabled: true});
     }
-
+    handleChangeSetup = (setup) => {
+        if (!setup.x || !setup.y)
+            return;
+        if (setup.x < 3 && setup.y < 3)
+            return;
+        if (setup.x < 2 || setup.y < 2)
+            return;
+        let newSetup = {x: setup.x, y: setup.y};
+        this.setState({setup: newSetup, field: new Field(newSetup.x, newSetup.y), ratingEnabled: false});
+    }
 }
 
 export default withRouter(Puzzle);

@@ -1,17 +1,20 @@
 import React from 'react'
 import './stone.css'
+import { GameStateEnum } from './Core';
 
 export default function StoneComponent(props) {
-    const { stone, row, col, handleMoveStone} = props;
+    const { stone, row, col, handleMoveStone, state} = props;
 
-    const getStyle = (stone) => {
+    const getStyle = (stone, state) => {
+        if (state === GameStateEnum.WON)
+            return 'tileStyle won';
         if (stone.value)
-            return 'tileStyle close';
-        return 'tileStyle open';
+            return 'tileStyle closed';
+        return `tileStyle open `;
     }
     return (
         <td className='colStyle'>
-            <button className = {getStyle(stone)} onClick = {(ev) => {handleMoveStone(row, col)}}>
+            <button className = {getStyle(stone, state)} onClick = {(ev) => {handleMoveStone(row, col)}}>
                 {stone.value}
             </button>
         </td>

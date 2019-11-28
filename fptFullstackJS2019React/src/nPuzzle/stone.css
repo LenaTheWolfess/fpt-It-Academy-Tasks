@@ -7,8 +7,8 @@
   .tileStyle {
     padding: 0;
     margin: 0;
-    width: 24px;
-    height: 24px;
+    width: 50px;
+    height: 50px;
     font-weight: bold;
   }
 
@@ -17,5 +17,16 @@
   }
 
   .closed {
-    background-color: lightgray !important;
+    background-color: white !important;
+    color: blue !important;
+    font-size: large;
+  }
+
+  .closed:hover {
+    background-color: skyblue !important;
+  }
+
+  .won {
+    color: limegreen !important;
+    background-color: white !important;
   }

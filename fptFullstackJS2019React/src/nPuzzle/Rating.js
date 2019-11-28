@@ -25,7 +25,7 @@ class Rating extends Component {
             return null;
         return <div>
                     <br/>
-                    <button className="btn btn-primary" onClick = {(ev) => {this.openForm()}}>Add Rating</button>
+                    <button className="btn btn-primary" onClick = {(ev) => {this.openForm()}}>Add rating</button>
                 </div>;
     }
     render() {
