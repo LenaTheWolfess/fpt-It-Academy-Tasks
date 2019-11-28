@@ -4,6 +4,7 @@ const commentRouter = require('./routes/comments')
 const scoreRouter = require("./routes/scores");
 const homeRouter = require("./routes/home");
 const carsRouter = require('./routes/cars')
+const ratingRouter = require('./routes/rating')
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(function(req, res, next) {
 app.use("/api/scores", scoreRouter);
 app.use("/api/comments", commentRouter);
 app.use("/api/cars", carsRouter);
+app.use('/api/rating', ratingRouter);
 app.use("/", homeRouter);
 
 // run app

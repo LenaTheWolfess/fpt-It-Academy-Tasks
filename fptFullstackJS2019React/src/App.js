@@ -9,6 +9,7 @@ import {BrowserRouter as Router,
 import Characters from './components/Characters';
 import CharacterDetail from './components/CharacterDetail';
 import Cars from './components/Cars';
+import Puzzle from './nPuzzle/Puzzle';
 
 const str = 'React'
 
@@ -45,6 +46,11 @@ export default class App extends Component {
                         activeClassName="active"
                         to="/cars">Cars</NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link"
+                         activeClassName="active"
+                         to="/Puzzle">Fifteen puzzle</NavLink>
+              </li>
             </ul>
           </nav>
           <div className="container" style={{marginTop: '68px'}}>
@@ -52,9 +58,8 @@ export default class App extends Component {
             <Route path="/cars"><Cars/></Route>
             <Route path="/tasks"> <Tasks /> </Route>
             <Route path="/minesweeper"> <Minesweeper /> </Route>
-            <Route path="/character/character-detail/:characterId">
-              <CharacterDetail />
-            </Route>
+            <Route path="/Puzzle"><Puzzle/></Route>
+            <Route path="/character/character-detail/:characterId"> <CharacterDetail /></Route>
             <Route path="/characters">
               <Characters />
             </Route>
