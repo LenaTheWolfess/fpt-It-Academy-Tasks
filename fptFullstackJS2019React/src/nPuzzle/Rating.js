@@ -33,7 +33,7 @@ class Rating extends Component {
         return (
             <div>
                 <br/>
-                <h3>Current game rating is: {this.state.rating}</h3>
+                <h3>Current game rating is: {Math.floor(this.state.rating*100)/100}</h3>
                 {this.showAddButton(ratingEnabled)}
             </div>
         )
