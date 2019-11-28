@@ -96,7 +96,8 @@ export class Field {
     moveDir = (direction) => {
         const row = this.freePositon.x;
         const col = this.freePositon.y;
-        this.swap(row - direction[0], col - direction[1] ,row, col)
+        if (this.swap(row - direction[0], col - direction[1] ,row, col))
+            this.checkWin();
     }
     checkWin = () => {
         // Last has to be empty

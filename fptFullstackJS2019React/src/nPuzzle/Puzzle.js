@@ -6,8 +6,9 @@ import RatingForm from './RatingForm'
 import SetupRenderer from './SetupRenderer'
 import {withRouter, Switch, Route} from 'react-router-dom'
 
-import KeyboardEventHandler from 'react-keyboard-event-handler'
-import { numberTypeAnnotation } from '@babel/types';
+import KeyboardEventHandler from 'react-keyboard-event-handler';
+const KEYBOARDENUM = {DOWN: 'down', UP: 'up', RIGTH: 'right', LEFT: 'left'};
+
 class Puzzle extends Component {
     constructor(props) {
         super(props);
@@ -28,8 +29,8 @@ class Puzzle extends Component {
                         <SetupRenderer setup = {this.state.setup} handleChangeSetup = {this.handleChangeSetup}/>
                         <FieldRenderer state = {this.state.field.gameState} stones = {this.state.field.stones} handleMoveStone = {this.handleMoveStone}/>
                         <KeyboardEventHandler
-                            handleKeys={['w', 'a', 's', 'd']}
-                            onKeyEvent={(key, ev) => this.handleKeyEvent(key, ev)}
+                            handleKeys={[KEYBOARDENUM.LEFT, KEYBOARDENUM.RIGTH, KEYBOARDENUM.UP, KEYBOARDENUM.DOWN]}
+                            onKeyEvent={(key, ev) =>{ ev.preventDefault(); this.handleKeyEvent(key, ev)}}
                         />
                         <Rating ratingEnabled = {this.state.ratingEnabled}/>
                     </Route>
@@ -52,10 +53,10 @@ class Puzzle extends Component {
             return;
         let dir;
         switch (key) {
-            case 's': dir = field.direction.DOWN; break;
-            case 'w': dir = field.direction.UP; break;
-            case 'a': dir = field.direction.LEFT; break;
-            case 'd': dir = field.direction.RIGTH; break;
+            case KEYBOARDENUM.DOWN: dir = field.direction.DOWN; break;
+            case KEYBOARDENUM.UP: dir = field.direction.UP; break;
+            case KEYBOARDENUM.LEFT: dir = field.direction.LEFT; break;
+            case KEYBOARDENUM.RIGTH: dir = field.direction.RIGTH; break;
             default: return;
         }
         field.moveDir(dir);
