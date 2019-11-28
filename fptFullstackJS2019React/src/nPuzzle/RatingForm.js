@@ -9,7 +9,10 @@ class RatingForm extends Component {
     render() {
         return (
             <form onSubmit = {(ev) => {ev.preventDefault(); this.handleSubmit(ev)}}>
-                <input type="number" name="rating" placeholder="1" min="1" max="5" onChange = {(ev) => {this.handleChange(ev)}}></input>
+                <div className="col-xs-3">
+                    <label className="h3" for="ex1" >Rating</label><br/>
+                    <input id="ex1" className="input-sm" type="number" name="rating" placeholder="1" min="1" max="5" onChange = {(ev) => {this.handleChange(ev)}}></input>
+                </div>
                 <br/>
                 <button  className="btn btn-primary" type="submit">Send</button>
                 <button className="btn btn-secondary" type="button" onClick = {(ev) => {ev.stopPropagation(); this.routeBack()}}>Back</button>

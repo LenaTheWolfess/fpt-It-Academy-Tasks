@@ -10,6 +10,13 @@ export class Field {
         this.stoneCount = (this.rows * this.columns) - 1;
         this.stones = [];
         this.gameState = GameStateEnum.PLAYING;
+        this.freePositon = {};
+        this.direction = {
+            DOWN: [1, 0],
+            UP: [-1, 0],
+            LEFT: [0, -1],
+            RIGTH: [0, 1]
+        }
         this.generateAndShuffle(true);
     }
 
@@ -26,8 +33,11 @@ export class Field {
             let value = 1;
             for (let row = 0; row < this.rows; ++row) {
                 for (let col = 0; col < this.columns; ++col) {
-                    if (value === this.stoneCount + 1)
+                    if (value === this.stoneCount + 1) {
                         this.stones[row][col] = new Empty();
+                        this.freePositon.x = row;
+                        this.freePositon.y = col;
+                    }
                     else
                         this.stones[row][col] = new Stone(value);
                     value++;
@@ -51,6 +61,8 @@ export class Field {
                 if (!this.stones[row][col]) {
                     // need something here, else we cannot use map
                     this.stones[row][col] = new Empty();
+                    this.freePositon.x = row;
+                    this.freePositon.y = col;
                     return;
                 }
             }
@@ -58,12 +70,16 @@ export class Field {
     }
 
     swap = (row, col, toRow, toCol) => {
+        if (row < 0 || row >= this.rows || col < 0 || col >= this.columns)
+            return false;
         if (toRow < 0 || toRow >= this.rows || toCol < 0 || toCol >= this.columns)
             return false;
         if (!this.stones[toRow][toCol].nothing)
             return false;
         this.stones[toRow][toCol] = new Stone(this.stones[row][col].value);
         this.stones[row][col] = new Empty();
+        this.freePositon.x = row;
+        this.freePositon.y = col;
         return true;
     }
     move = (row, col) => {
@@ -76,6 +92,11 @@ export class Field {
                 return;
             }
         }
+    }
+    moveDir = (direction) => {
+        const row = this.freePositon.x;
+        const col = this.freePositon.y;
+        this.swap(row - direction[0], col - direction[1] ,row, col)
     }
     checkWin = () => {
         // Last has to be empty

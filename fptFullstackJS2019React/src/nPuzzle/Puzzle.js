@@ -6,6 +6,8 @@ import RatingForm from './RatingForm'
 import SetupRenderer from './SetupRenderer'
 import {withRouter, Switch, Route} from 'react-router-dom'
 
+import KeyboardEventHandler from 'react-keyboard-event-handler'
+import { numberTypeAnnotation } from '@babel/types';
 class Puzzle extends Component {
     constructor(props) {
         super(props);
@@ -25,6 +27,10 @@ class Puzzle extends Component {
                     <Route path="/">
                         <SetupRenderer setup = {this.state.setup} handleChangeSetup = {this.handleChangeSetup}/>
                         <FieldRenderer state = {this.state.field.gameState} stones = {this.state.field.stones} handleMoveStone = {this.handleMoveStone}/>
+                        <KeyboardEventHandler
+                            handleKeys={['w', 'a', 's', 'd']}
+                            onKeyEvent={(key, ev) => this.handleKeyEvent(key, ev)}
+                        />
                         <Rating ratingEnabled = {this.state.ratingEnabled}/>
                     </Route>
                 </Switch>
@@ -36,6 +42,23 @@ class Puzzle extends Component {
         if (field.gameState !== GameStateEnum.PLAYING)
             return;
         field.move(row, col);
+        this.setState({field: field});
+        if (field.gameState === GameStateEnum.WON)
+            this.setState({ratingEnabled: true});
+    }
+    handleKeyEvent = (key, ev) => {
+        const field = this.state.field;
+        if (field.gameState !== GameStateEnum.PLAYING)
+            return;
+        let dir;
+        switch (key) {
+            case 's': dir = field.direction.DOWN; break;
+            case 'w': dir = field.direction.UP; break;
+            case 'a': dir = field.direction.LEFT; break;
+            case 'd': dir = field.direction.RIGTH; break;
+            default: return;
+        }
+        field.moveDir(dir);
         this.setState({field: field});
         if (field.gameState === GameStateEnum.WON)
             this.setState({ratingEnabled: true});

@@ -32,7 +32,8 @@ class Rating extends Component {
         let ratingEnabled = this.props.ratingEnabled;
         return (
             <div>
-                Current rating is: {this.state.rating}
+                <br/>
+                <h3>Current game rating is: {this.state.rating}</h3>
                 {this.showAddButton(ratingEnabled)}
             </div>
         )
