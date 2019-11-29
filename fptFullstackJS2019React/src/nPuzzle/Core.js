@@ -17,7 +17,7 @@ export class Field {
             LEFT: [0, -1],
             RIGTH: [0, 1]
         }
-        this.generateAndShuffle(false);
+        this.generateAndShuffle(true);
     }
 
     generateAndShuffle = (hack) => {

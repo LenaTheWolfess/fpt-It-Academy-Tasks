@@ -27,7 +27,7 @@ class RatingForm extends Component {
                 </div>
                 <br/>
                 <button  className="btn btn-primary" type="submit">Send</button>
-                <button className="btn btn-secondary" type="button" onClick = {(ev) => {ev.stopPropagation(); this.routeBack()}}>Back</button>
+                <button className="btn btn-secondary" type="button" onClick = {(ev) => {ev.stopPropagation(); this.routeBack()}}>Cancel</button>
             </form>
         )
     }
